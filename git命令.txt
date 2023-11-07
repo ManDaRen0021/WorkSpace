@@ -1,0 +1,67 @@
+01 问题描述：Git Bash Here 找不到应用程序
+a.克隆项目的时候，在文件夹中 *右键* *Git Bash Here*
+b.显示找不到应用程序
+02 解决方案：通过修改注册表内相应文件路径信息的方法
+a.Win+R 键 调出运行框，输入regedit
+b.在地址输入框 输入以下地址
+计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\git_shell\command
+
+c.在数值数据处 输入本地git.exe所在位置的正确地址
+d.任意文件夹右键，Git Bash Here 即可成功
+ 
+
+
+git 命令
+lc2017xxx@163.com
+woshi110+++
+ManDaRen0021
+
+git@github.com:ManDaRen0021/WorkSpace.git
+https://github.com/ManDaRen0021/WorkSpace.git
+
+本地仓库操作：
+
+git 提交：git add '文件名' 加入暂存区
+git status 查看状态
+git reset 将暂存区的文件取消暂存
+git status 查看状态
+
+git 提交全部文件：git add .
+
+将暂存区文件修改提交到本地仓库git commit 
+git commit -m "注释"
+
+git rm 删除文件
+git status 查看删除后状态
+
+远程仓库操作介绍
+添加远程仓库
+git remote add <shortname> <url>
+
+克隆仓库的命令格式是 git clone [url] 
+git remote rm移除远程仓库
+
+从远程仓库中抓取与拉取
+
+  git fetch 是从远程仓库获取最新版本到本地仓库，不会自动merge（融合）
+  git pull 是从远程仓库获取最新版本并merge到本地仓库
+
+推送到远程仓库
+git push [remote-name] [branch-name]
+git push origin（远程仓库名称） 分支名称， 
+下载分支
+git clone git@gitlab.xxxx.cn:test/xxxxxxxxxx.git
+
+分支操作
+查看分支
+ 列出所有本地分支
+ git branch
+ 列出所有远程分支
+ git branch -r
+ 列出所有本地分支和远程分支
+ git branch -a
+
+切换分支：git checkout 分支名称
+
+
+git clone git@github.com:ManDaRen0021/Hellow-Word.git

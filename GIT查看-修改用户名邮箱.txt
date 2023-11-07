@@ -1,0 +1,57 @@
+【GIT 查看/修改用户名和邮箱地址（和解决 git 中【user.name has multiple value】的错误）】
+用户名和邮箱地址的作用
+
+用户名和邮箱地址是本地git客户端的一个变量，不随git库而改变。
+
+每次commit都会用用户名和邮箱纪录。
+
+github的contributions统计就是按邮箱来统计的。
+
+查看用户名和邮箱地址：
+git config user.name
+git config user.email
+
+修改用户名和邮箱地址：
+
+git config --global user.name "username"
+git config --global user.email "email"
+
+2. 解决 git 中【user.name has multiple value】的错误
+git 中，有时在使用以下命令行时
+
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+ 
+报下面的错误：
+
+warning: user.name has multiple values
+error: cannot overwrite multiple values with a single value
+       Use a regexp, --add or --replace-all to change user.name.
+这时，发现是因为user.name有多个值导致的
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=F:/Git/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager-core
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+user.name=lc2017xxx@163.com
+user.name=ManDaRen0021
+user.email=104675106+ManDaRen0021@users.noreply.github.com
+sendpack.sideband=false
+解决方法：
+git config --global --replace-all user.name "你的 git 的名称"
+git config --global --replace-all uesr.email "你的 git 的邮箱"
+
+
